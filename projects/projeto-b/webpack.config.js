@@ -11,7 +11,8 @@ sharedMappings.register(
 module.exports = {
   output: {
     uniqueName: "projetoB",
-    publicPath: "auto"
+    publicPath: "auto",
+    scriptType: "text/javascript"
   },
   optimization: {
     runtimeChunk: false
@@ -26,7 +27,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-        library: { type: "module" },
+        //library: { type: "module" },
 
         // For remotes (please adjust)
         // name: "projetoB",
@@ -36,10 +37,9 @@ module.exports = {
         // },        
         
         // For hosts (please adjust)
-        // remotes: {
-        //     "projetoA": "http://localhost:4200/remoteEntry.js",
-
-        // },
+        remotes: {
+            "projetoA": "projetoA@http://localhost:4200/remoteEntry.js",
+        },
 
         shared: share({
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
