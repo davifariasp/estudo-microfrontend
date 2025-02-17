@@ -11,7 +11,8 @@ sharedMappings.register(
 module.exports = {
   output: {
     uniqueName: "projetoA",
-    publicPath: "auto"
+    publicPath: "auto",
+    scriptType: "text/javascript"
   },
   optimization: {
     runtimeChunk: false
@@ -29,11 +30,11 @@ module.exports = {
         library: { type: "module" },
 
         // For remotes (please adjust)
-        // name: "projetoA",
-        // filename: "remoteEntry.js",
-        // exposes: {
-        //     './Component': './projects/projeto-a/src/app/app.component.ts',
-        // },        
+        name: "projetoA",
+        filename: "remoteEntry.js",
+        exposes: {
+            './ProfileModule': './projects/projeto-a/src/app/profile/profile.module.ts',
+        },        
         
         // For hosts (please adjust)
         // remotes: {
